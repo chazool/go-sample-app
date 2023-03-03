@@ -312,8 +312,11 @@ func (config CommonConfig) setOpentelementry(app fiber.Router, ctx context.Conte
 		)
 
 		if len(config.JaegerConfigEndpoint) > 0 {
-			utils.Logger.Debug("config jeager-opentelementr with collectorEndpoint")
-			exporters, err = jaeger.New(jaeger.WithCollectorEndpoint(
+			utils.Logger.Debug("config jeager-opentelementr withcollectorEndpoint")
+			exporters, err = jaeger.New(jaeger.WithCollectorEndpoint(jaeger.WithEndpoint(config.JaegerConfigEndpoint)))
+		} else {
+			utils.Logger.Debug("config jeager-opentelementr withcollectorEndpoint")
+			exporters, err = jaeger.New(jaeger.WithAgentEndpoint(
 				jaeger.WithAgentPort(config.JeagerConfigPort),
 				jaeger.WithAgentHost(config.JeagerConfigHost)))
 		}
