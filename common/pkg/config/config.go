@@ -63,6 +63,7 @@ type CommonConfig struct {
 	LogConfig
 	SrvListenPort                string
 	ChildFiberProcessIdleTimeout time.Duration
+	Pprofenabled                 bool
 }
 
 type LogConfig struct {
@@ -109,7 +110,7 @@ func (config *CommonConfig) setDefaultConfig() {
 	viper.SetDefault(Pprofenabled, "true")
 
 	//datadog config
-	viper.SetDefault(Tracesink, "datadog")
+	viper.SetDefault(Tracesink, "jaeger")
 	viper.SetDefault(DDAgentHost, "127.0.0.1")
 	viper.SetDefault(DDAgentPort, "8126")
 
@@ -128,6 +129,7 @@ func (config *CommonConfig) BuildConfig() *CommonConfig {
 		LogConfig:                    logConfig,
 		ChildFiberProcessIdleTimeout: viper.GetDuration(ChildFiberProcessIdleTimeout),
 		SrvListenPort:                viper.GetString(SrvListenPort),
+		Pprofenabled:                 viper.GetBool(Pprofenabled),
 	}
 
 	configJsonPresntation, _ := json.Marshal(config)

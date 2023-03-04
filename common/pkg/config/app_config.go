@@ -8,6 +8,7 @@ import (
 	"syscall"
 	"time"
 
+	custommiddleware "github.com/chazool/go-sample-app/common/pkg/custom_middleware"
 	"github.com/chazool/go-sample-app/common/pkg/fibercore"
 	"github.com/chazool/go-sample-app/common/pkg/utils"
 	"github.com/chazool/go-sample-app/common/pkg/utils/constant"
@@ -38,6 +39,11 @@ func Start() {
 	if err != nil {
 		log.Panic(err.Error())
 	}
+
+	// add custom request middleware for panic recovery request, Request time & Request ID
+	custommiddleware.RequestMiddleware(app, appConfig.Pprofenabled)
+	//Add cors Moddleware
+	custommiddleware.CorsMiddleware(app)
 
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.SendString("Hello, World!")
