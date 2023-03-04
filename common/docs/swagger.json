@@ -1,0 +1,16 @@
+{
+    "schemes": [
+        "https"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "title": "Sample Service",
+        "contact": {
+            "name": "Chazool",
+            "url": "https://lk.linkedin.com/in/chazool",
+            "email": "chazoolk@gmail.com"
+        },
+        "version": "1.0"
+    },
+    "paths": {}
+}

@@ -1,0 +1,11 @@
+info:
+  contact:
+    email: chazoolk@gmail.com
+    name: Chazool
+    url: https://lk.linkedin.com/in/chazool
+  title: Sample Service
+  version: "1.0"
+paths: {}
+schemes:
+- https
+swagger: "2.0"
