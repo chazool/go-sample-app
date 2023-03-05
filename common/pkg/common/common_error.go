@@ -1,4 +1,4 @@
-package error
+package common
 
 import (
 	"net/http"
@@ -38,17 +38,17 @@ func BuildErrResultWithSuccessStatus(errCode, errMessage, errDetail string) Erro
 	}
 }
 
-// BuilBbadReqErrResultWirhList used to build ErrorResult with bErrorinfo list and bad request code
-func BuilBbadReqErrResultWirhList(errInfo ErrorInfo) ErrorResult {
+// BuildBadReqErrResultWithList used to build ErrorResult with ErrorInfo list and bad request code
+func BuildBadReqErrResultWithList(errInfo ...ErrorInfo) ErrorResult {
 	return ErrorResult{
-		ErrorList:  []ErrorInfo{},
+		ErrorList:  errInfo,
 		IsError:    false,
 		StatusCode: http.StatusBadRequest,
 	}
 }
 
-// BuildErrResultWithSuccessStatus used to build ErrorResult with bad request code
-func BuilBbadReqErrResult(errCode, errMessage, errDetail string) ErrorResult {
+// BuildBadReqErrResult used to build ErrorResult with bad request code
+func BuildBadReqErrResult(errCode, errMessage, errDetail string) ErrorResult {
 	errList := []ErrorInfo{BuildErrorInfo(errCode, errMessage, errDetail)}
 	return ErrorResult{
 		ErrorList:  errList,

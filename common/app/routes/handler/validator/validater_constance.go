@@ -1,13 +1,17 @@
 package validator
 
 const (
-	alphaNumaricRegex = "[a-zA-Z0-9]"
+	alphaNumericRegex = "[a-zA-Z0-9]"
 	alfaRegex         = "[a-zA-Z]"
 )
 
 const (
 	host         = "Host"
 	port         = "Port"
-	alphaNumaric = "AlphaNumaric"
+	alphaNumeric = "AlphaNumeric"
 	alpha        = "Alpha"
+)
+
+const (
+	ValidateTestConnectionMethod = "ValidateTestConnection"
 )

@@ -7,15 +7,15 @@ import (
 	"github.com/go-playground/validator/v10"
 )
 
-// RegistorCustomValidation use add custom validator
-func RegistorCustomValidation(validate *validator.Validate) {
+// RegisterCustomValidation use add custom validator
+func RegisterCustomValidation(validate *validator.Validate) {
 
 	validate.RegisterValidation(alpha, func(fl validator.FieldLevel) bool {
 		return containsOnly(fl.Field().String(), alfaRegex)
 	})
 
-	validate.RegisterValidation(alphaNumaric, func(fl validator.FieldLevel) bool {
-		return containsOnly(fl.Field().String(), alphaNumaricRegex)
+	validate.RegisterValidation(alphaNumeric, func(fl validator.FieldLevel) bool {
+		return containsOnly(fl.Field().String(), alphaNumericRegex)
 	})
 
 	validate.RegisterValidation(host, func(fl validator.FieldLevel) bool {
@@ -35,8 +35,8 @@ func RegistorCustomValidation(validate *validator.Validate) {
 
 }
 
-// RegisterCustomTranlation use add custom validater translation
-func RegisterCustomTranlation(validate *validator.Validate, trans ut.Translator) {
+// RegisterCustomTranslation use add custom validater translation
+func RegisterCustomTranslation(validate *validator.Validate, trans ut.Translator) {
 
 	validate.RegisterTranslation(alpha, trans, func(ut ut.Translator) error {
 		return ut.Add(alpha, "{0} can only contain Alpha characters", true)
@@ -45,10 +45,10 @@ func RegisterCustomTranlation(validate *validator.Validate, trans ut.Translator)
 		return t
 	})
 
-	validate.RegisterTranslation(alphaNumaric, trans, func(ut ut.Translator) error {
-		return ut.Add(alphaNumaric, "{0} can only contain Alpha-Numaric  characters", true)
+	validate.RegisterTranslation(alphaNumeric, trans, func(ut ut.Translator) error {
+		return ut.Add(alphaNumeric, "{0} can only contain Alpha-Numaric  characters", true)
 	}, func(ut ut.Translator, fe validator.FieldError) string {
-		t, _ := ut.T(alphaNumaric, fe.Field())
+		t, _ := ut.T(alphaNumeric, fe.Field())
 		return t
 	})
 
