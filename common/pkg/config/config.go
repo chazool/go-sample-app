@@ -28,7 +28,11 @@ import (
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
-var appConfig *CommonConfig
+var (
+	appConfig  *CommonConfig
+	ParentCtx  context.Context
+	ParentSpan trace.Span
+)
 
 // configuration constance
 const (
@@ -268,6 +272,16 @@ func (config *CommonConfig) InitDatadogConfig() {
 	agentAddress := config.DatadogCofigHost + ":" + config.DatadogConfigPort
 	tracer.Start(tracer.WithAgentAddr(agentAddress))
 	utils.Logger.Debug("TraceAgent", zap.String("agentAddress", agentAddress))
+}
+
+type OpentelemetryParantCtx struct {
+	ParentCtx  context.Context
+	ParentSpan trace.Span
+}
+
+func (parent *OpentelemetryParantCtx) SetOpentelementryParentCtx() {
+	ParentCtx = parent.ParentCtx
+	ParentSpan = parent.ParentSpan
 }
 
 func (config CommonConfig) setOpentelementry(app fiber.Router, ctx context.Context) (*tracesdk.TracerProvider, error) {

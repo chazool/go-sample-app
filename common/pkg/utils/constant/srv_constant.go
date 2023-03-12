@@ -32,3 +32,9 @@ const (
 	ErrorNote                = "Error Note"
 	HTMLPassErr              = "HTML Template pass Error"
 )
+
+type HttpMethod string
+
+const (
+	Get, Post, Patch, Delete HttpMethod = "GET", "POST", "PATCH", "DELETE"
+)
