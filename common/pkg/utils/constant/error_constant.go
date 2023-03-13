@@ -30,8 +30,10 @@ const (
 	InvalidRequestErrorMessage   = "Invalid Request validation Error Occurred"
 	UnexpectedErrorMessage       = "Unexpected Error occurred at %s"
 	UnexpectedWhenUnmarshalError = "Unexpected Error occurred when Unmarshal the data &s with identifier %s"
-	UnexpectedFileCreateError    = "Unexpected Error occurred when Create the % file"
+	UnexpectedFileCreateError    = "Unexpected Error occurred when Create the %s file"
 	TestConnectionFilMessage     = "Error Occurred when TestConnection"
 	InvalidDataOrFile            = "Invalid Data or File "
 	InvalidJsonTestData          = "Invalid Json test data"
+	FileReadError                = "Unable to read file %v"
+	HTMLTempPassError            = "HTML Template parse error"
 )

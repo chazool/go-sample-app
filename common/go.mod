@@ -49,6 +49,7 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/secure-systems-lab/go-securesystemslib v0.4.0 // indirect
 	github.com/stretchr/objx v0.5.0 // indirect
+	github.com/swaggo/files v0.0.0-20210815190702-a29dd2bc99b2 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/internal/retry v1.14.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.14.0 // indirect
 	go.opentelemetry.io/proto/otlp v0.19.0 // indirect
@@ -67,6 +68,7 @@ require (
 
 require (
 	github.com/andybalholm/brotli v1.0.4 // indirect
+	github.com/arsmn/fiber-swagger/v2 v2.31.1
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
 	github.com/go-playground/validator/v10 v10.11.2
 	github.com/google/uuid v1.3.0 // indirect

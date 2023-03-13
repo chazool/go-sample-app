@@ -4,6 +4,25 @@ const (
 	DatadogTracingSink = "datadog"
 )
 
+// special charactes
+const (
+	colon    = ":"
+	Basepath = "./"
+	Empty    = ""
+	Hyphen   = "-"
+)
+
+// file constant
+const (
+	DocumentHtml  = "document.html"
+	StaticHtml    = "static.html"
+	Doc           = "doc"
+	Static        = "static"
+	HTML          = "html"
+	DotJson       = ".json"
+	DotGoldenJson = ".golden.json"
+)
+
 // Logger Message
 const (
 	TraceMsgBeforeFetching   = "Before Fetching %v"
@@ -31,6 +50,7 @@ const (
 	DebugNote                = "Debug workflow"
 	ErrorNote                = "Error Note"
 	HTMLPassErr              = "HTML Template pass Error"
+	Response                 = "Response"
 )
 
 // utils func
