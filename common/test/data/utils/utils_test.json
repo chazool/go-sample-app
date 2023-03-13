@@ -1,0 +1,36 @@
+[{
+    "name":"Testing Positive",
+    "funcMockSteps" : [
+        {
+            "params" :{
+                "args":{
+                    "list":["Dog","Cat","Man"],
+                    "value":"Man"
+                }
+            },
+            "returnData": {
+                "OutPuts": {
+                    "result":true
+                }
+            }
+        }
+    ]
+},
+{
+    "name":"Testing Negative",
+    "funcMockSteps" : [
+        {
+            "params" :{
+                "args":{
+                    "list":["Dog","Cat","Man"],
+                    "value":"Women"
+                }
+            },
+            "returnData": {
+                "OutPuts": {
+                    "result":false
+                }
+            }
+        }
+    ]
+}]

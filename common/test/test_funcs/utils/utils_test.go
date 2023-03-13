@@ -12,16 +12,15 @@ import (
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
-type testHealth struct {
-	Name     string `json:"name"`
-	EndPoint string `json:"endPoint"`
-	Expected string `json:"expected"`
-}
-
 var (
 	commonLogFields = []zap.Field{zap.String(constant.TraceMsgReqId, "00000000-0000-0000-0000-000-00000000000")}
 	netutils        = utils.NetUtilsImpl{NetUtils: &utils.NetUtilsService{}}.NetUtils
+	
 )
+
+
+
+
 
 func initutilsAndCommonFieldData() {
 	logConfig := zap.NewDevelopmentEncoderConfig()
@@ -40,13 +39,26 @@ func init() {
 	initutilsAndCommonFieldData()
 }
 
-func TestLookIp(t *testing.T) {
-	tetCases := test.GetTestCase("")
-
+func TestContains(t *testing.T) {
+	tetCases := test.GetTestCase("../../data/utils/utils_test.json")
 	for _, testCase := range tetCases {
+
+		var (
+			list      []string
+			funcSteps = testCase.FuncMockSteps[0]
+			args      = funcSteps.Params.Args
+			outputs   = funcSteps.ReturnData.Outputs
+			iList     = args["list"].([]interface{})
+			value     = args["value"].(string)
+			result    = outputs["result"].(bool)
+		)
+
+		for _, v := range iList {
+			list = append(list, v.(string))
+		}
+
 		t.Run(testCase.Name, func(t *testing.T) {
-			assert.NotNil(t, "look")
+			assert.Equal(t, result, utils.Contains(list, value))
 		})
 	}
-
 }

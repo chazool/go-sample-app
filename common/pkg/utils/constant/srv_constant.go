@@ -33,6 +33,11 @@ const (
 	HTMLPassErr              = "HTML Template pass Error"
 )
 
+// utils func
+const (
+	Dial = "Dial"
+)
+
 type HttpMethod string
 
 const (
